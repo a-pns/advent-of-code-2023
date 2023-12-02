@@ -1,3 +1,6 @@
+from utilities import get_inputs_from_file
+
+
 def evaluate_line(arg_line):
     if len(arg_line) == 0:
         raise RuntimeError("Line is empty")
@@ -52,19 +55,9 @@ def evaluate_multiple_spelt_lines(arg_array_lines):
     return evaluation
 
 
-def _get_inputs_from_file(arg_file_input):
-    line_inputs = []
-    with open(arg_file_input) as file:
-        next_line = file.readline()
-        while next_line:
-            line_inputs.append(next_line)
-            next_line = file.readline()
-    return line_inputs
-
-
 def evaluate_day1_scenario(arg_file_input):
-    return evaluate_multiple_lines(_get_inputs_from_file(arg_file_input))
+    return evaluate_multiple_lines(get_inputs_from_file(arg_file_input))
 
 
 def evaluate_day1_b_scenario(arg_file_input):
-    return evaluate_multiple_spelt_lines(_get_inputs_from_file(arg_file_input))
+    return evaluate_multiple_spelt_lines(get_inputs_from_file(arg_file_input))
